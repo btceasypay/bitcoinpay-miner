@@ -19,7 +19,6 @@
 
 1. [Git](https://git-scm.com/downloads) 
 2. [Go](https://golang.org/dl/) version >= 1.12
-3. [Rust/Cargo](https://www.rust-lang.org/tools/install) >= 1.38.0
 
 ### Linux
 
@@ -51,14 +50,7 @@ Install [**Build Tools for Visual Studio**](https://visualstudio.microsoft.com/t
 $ git clone git@github.com:Bitcoinpay/bitcoinpay-miner.git
 ```
 
-### 2. Build the cuckatoo library 
-
-```bash
-$ cd bitcoinpay-miner 
-$ sh installLibrary.sh
-```
-
-### 3. Build the cudacuckaroom library 
+### 2. Build the cudacuckaroom library 
 
 [Build Step](lib/cuda/cuckaroom/README.md)
 
@@ -75,21 +67,13 @@ $ CGO_ENABLED=1 GOOS=windows GOARCH=amd64 go build -tags cuda -o win-miner.exe m
 
 ### 4. Verify Build OK
 
+- cuda
 ```bash
+$ go build --tags cuda
 $ ./bitcoinpay-miner --version
 ```
-
-### Windows-additional step
-
-Before step 3, do following 
+- opencl
 ```bash
-$ copy lib/cuckoo/target/release/x86_64-pc-windows-gnu/cuckoo.lib to C:/mingw64/lib
-$ copy lib/opencl/windows/libOpenCL.a to C:/mingw64/lib
-```
-### Linux-additional step
-
-Before step 3, do following 
-```bash
-$ sudo copy lib/cuckoo/target/x86_64-unknown-linux-musl/release/libcuckoo.a /usr/lib/x86_64-linux-musl
-$ sudo copy lib/opencl/linux/libOpenCL.a /usr/lib/x86_64-linux-musl
+$ go build --tags opencl
+$ ./bitcoinpay-miner --version
 ```
