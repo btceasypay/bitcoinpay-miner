@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	SYMBOL_PMEER = "PMEER"
+	SYMBOL_BTP = "BTP"
 )
 
 //var devicesTypesForMining = cl.DeviceTypeAll

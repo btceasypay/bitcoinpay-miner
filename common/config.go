@@ -37,7 +37,7 @@ var (
 	maxIntensity         = 31
 	maxWorkSize          = uint32(0xFFFFFFFF - 255)
 	defaultPow           = "cuckaroo"
-	defaultSymbol        = "PMEER"
+	defaultSymbol        = "BTP"
 	defaultTimeout       = 60
 	defaultMaxTxCount    = 1000
 	defaultMaxSigCount   = 4000
@@ -120,7 +120,7 @@ type SoloConfig struct {
 type NecessaryConfig struct {
 	// Config / log options
 	Pow     string `short:"P" long:"pow" description:"blake2bd|cuckaroo|cuckatoo"`
-	Symbol  string `short:"S" long:"symbol" description:"Symbol" default-mask:"PMEER"`
+	Symbol  string `short:"S" long:"symbol" description:"Symbol" default-mask:"BTP"`
 	NetWork string `short:"N" long:"network" description:"network privnet|testnet|mainnet" default-mask:"testnet"`
 	Param   *params.Params
 }
