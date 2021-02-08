@@ -136,7 +136,7 @@ See [BUILD.md](BUILD.md) for build/compilation details.
 ## FAQ
 
 ### How to create Bitcoinpay adderss
-There are several ways to create a Bitcoinpay address. you can use [qx][Qx] command , [Bitcoinpay-wallet][Bitcoinpay-wallet], etc.
+There are several ways to create a Bitcoinpay address. you can use [bx][Bx] command , [Bitcoinpay-wallet][Bitcoinpay-wallet], etc.
 The most easy way to download the [Bitcoinpay wallet][Bitcoinpay.io], which provide a more user friendly GUI to create your address/wallet step by step. 
 
 ### Which POW algorithm I should choose to mine ?
@@ -148,5 +148,5 @@ Please find more documentation from the [Bitcoinpay doc site at https://bitcoinp
 
 [Releases]: https://github.com/btceasypay/bitcoinpay-miner/releases
 [Latest]: https://github.com/btceasypay/bitcoinpay-miner/releases/latest
-[Qx]: https://bitcoinpay.github.io/docs/en/reference/qxtools/
+[Bx]: https://bitcoinpay.github.io/docs/en/reference/bxtools/
 [Bitcoinpay-wallet]: https://github.com/btceasypay/bitcoinpay-wallet
