@@ -38,14 +38,14 @@ accessible from command line.
 1. go to your 
 2. create a new config file by copying from the example config file. 
 ```bash
-$ cp example.solo.conf Bitcoinpay-miner.conf
+$ cp example.solo.conf solo.conf
 ```
 3. edit the config file which your create, you might need to change the `mineraddress`. 
 you need to create a Bitcoinpay address if you don't have it. Please see [FAQ](#FAQ)  
 4. run miner with the config file
 
 ```bash
-$ ./Bitcoinpay-miner -C Bitcoinpay-miner.conf
+$ ./bitcoinpay-miner -C solo.conf
 ```
 
 ### Command line usage
@@ -54,52 +54,75 @@ The Bitcoinpay-miner is a command line program. This means you can also launch i
 
 ```bash
 $ ./bitcoinpay-miner --help 
+Usage:
+  bitcoinpay-miner [OPTIONS]
+
 Debug Command:
-  -l, --listdevices    List number of devices.
+  -l, --listdevices             List number of devices.
+  -v, --version                 show the version of miner
 
 The Config File Options:
-  -C, --configfile=    Path to configuration file
-      --minerlog=      Write miner log file
+  -C, --configfile=             Path to configuration file
+      --minerlog=               Write miner log file
 
 The Necessary Config Options:
-  -P, --pow=           blake2bd|cuckaroo|cuckatoo (blake2bd)
-  -S, --symbol=        Symbol (PMEER)
-  -N, --network=       network privnet|testnet|mainnet (mainnet)
+  -P, --pow=                    blake2bd|cuckaroo|cuckatoo (cuckaroo)
+  -S, --symbol=                 Symbol (PMEER)
+  -N, --network=                network privnet|testnet|mainnet (testnet)
 
 The Solo Config Option:
-  -M, --mineraddress=  Miner Address
-  -s, --rpcserver=     RPC server to connect to (127.0.0.1)
-  -u, --rpcuser=       RPC username
-  -p, --rpcpass=       RPC password
-      --randstr=       Rand String,Your Unique Marking. (Come from Bitcoinpay!)
-      --notls          Do not verify tls certificates (true)
-      --rpccert=       RPC server certificate chain for validation
+  -M, --mineraddress=           Miner Address
+  -s, --rpcserver=              RPC server to connect to (127.0.0.1)
+  -u, --rpcuser=                RPC username
+  -p, --rpcpass=                RPC password
+      --randstr=                Rand String,Your Unique Marking. (Come from Bitcoinpay!)
+      --notls                   Do not verify tls certificates (true)
+      --rpccert=                RPC server certificate chain for validation
 
 The pool Config Option:
-  -o, --pool=          Pool to connect to (e.g.stratum+tcp://pool:port)
-  -m, --pooluser=      Pool username
-  -n, --poolpass=      Pool password
+  -o, --pool=                   Pool to connect to (e.g.stratum+tcp://pool:port)
+  -m, --pooluser=               Pool username
+  -n, --poolpass=               Pool password
 
 The Optional Config Option:
-      --cpuminer       CPUMiner (false)
-      --proxy=         Connect via SOCKS5 proxy (eg. 127.0.0.1:9050)
-      --proxyuser=     Username for proxy server
-      --proxypass=     Password for proxy server
-      --trimmerTimes=  the cuckaroo trimmer times (40)
-      --intensity=     Intensities (the work size is 2^intensity) per device. Single global value or a comma separated list. (24)
-      --worksize=      The explicitly declared sizes of the work to do per device (overrides intensity). Single global value or a comma separated list. (256)
-      --timeout=       rpc timeout. (60)
-      --use_devices=   all gpu devices,you can use ./Bitcoinpay-miner -l to see. examples:0,1 use the #0 device and #1 device
-      --max_tx_count=  max pack tx count (1000)
-      --max_sig_count= max sign tx count (5000)
-      --log_level=     info|debug|error|warn|trace (debug)
-      --stats_server=  stats web server (127.0.0.1:1235)
-      --edge_bits=     edge bits (24)
-      --local_size=    local size (4096)
-      --group_size=    work group size (256)
+      --cpuminer                CPUMiner (false)
+      --proxy=                  Connect via SOCKS5 proxy (eg. 127.0.0.1:9050)
+      --proxyuser=              Username for proxy server
+      --proxypass=              Password for proxy server
+      --trimmerTimes=           the cuckaroo trimmer times (15)
+      --intensity=              Intensities (the work size is 2^intensity) per device. Single global value or a comma separated
+                                list. (24)
+      --worksize=               The explicitly declared sizes of the work to do per device (overrides intensity). Single global
+                                value or a comma separated list. (256)
+      --timeout=                rpc timeout. (60)
+      --use_devices=            all gpu devices,you can use ./bitcoinpay-miner -l to see. examples:0,1 use the #0 device and #1
+                                device
+      --max_tx_count=           max pack tx count (1000)
+      --max_sig_count=          max sign tx count (4000)
+      --log_level=              info|debug|error|warn|trace (info)
+      --stats_server=           stats web server (127.0.0.1:1235)
+      --edge_bits=              edge bits (24)
+      --local_size=             local size (4096)
+      --group_size=             work group size (256)
+      --cuda                    is cuda (false)
+      --task_interval=          get blocktemplate interval (2)
+      --task_force_stop         force stop the current task when miner fail to get blocktemplate from the bitcoinpay full node.
+                                (true)
+      --mining_sync_mode        force stop the current task when new task come. (true)
+      --force_solo              force solo mining (false)
+      --big_graph_start_height= big graph start main height, how many days later,the r29 will be the main pow (45)
+      --expand=                 expand enum 0,1,2 (0)
+      --ntrims=                 trim times  (50)
+      --genablocks=             genablocks (4096)
+      --genatpb=                genatpb (256)
+      --genbtpb=                genbtpb (256)
+      --trimtpb=                genbtpb (64)
+      --tailtpb=                tailtpb (1024)
+      --recoverblocks=          recoverblocks (1024)
+      --recovertpb=             recovertpb (1024)
 
 Help Options:
-  -h, --help           Show this help message
+  -h, --help                    Show this help message
  
 ```
 Please see [Bitcoinpay-Miner User References](https://Bitcoinpay.github.io/docs/en/reference/Bitcoinpay-miner/) for more details

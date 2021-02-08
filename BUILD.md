@@ -56,15 +56,21 @@ $ git clone git@github.com:Bitcoinpay/bitcoinpay-miner.git
 
 ### 3. Build bitcoinpay-miner  
 
+- opencl
+```bash
+$ go build --tags opencl
+```
+
+- cuda
 ```bash
 $ cp lib/cuda/cuckaroom/cudacuckoo.dll lib/cuda/
 $ cp lib/cuda/cuckaroom/cudacuckoo.so lib/cuda/
 //# mac
 $ go build --tags opencl
 //# linux apt install musl-tools g++ -y
-$ CGO_ENABLED=1 CC=musl-gcc CXX=g++ GOOS=linux go build -tags cuda -o linux-miner main.go
+$ CGO_ENABLED=1 CC=musl-gcc CXX=g++ GOOS=linux go build --tags cuda -o linux-miner main.go
 //# windows 
-$ CGO_ENABLED=1 GOOS=windows GOARCH=amd64 go build -tags cuda -o win-miner.exe main.go
+$ CGO_ENABLED=1 GOOS=windows GOARCH=amd64 go build --tags cuda -o win-miner.exe main.go
 ```
 
 ### 4. Verify Build OK
