@@ -67,7 +67,7 @@ The Config File Options:
 
 The Necessary Config Options:
   -P, --pow=                    blake2bd|cuckaroo|cuckatoo (cuckaroo)
-  -S, --symbol=                 Symbol (PMEER)
+  -S, --symbol=                 Symbol (BTP)
   -N, --network=                network privnet|testnet|mainnet (testnet)
 
 The Solo Config Option:

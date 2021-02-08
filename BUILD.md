@@ -60,6 +60,8 @@ $ git clone git@github.com:Bitcoinpay/bitcoinpay-miner.git
 ```bash
 $ go build --tags opencl
 ```
+**If MacOS appear warn like `newer macOS version (11.0) than being linked`
+see issue[issue](https://github.com/btceasypay/bitcoinpay-miner/issues/6)**
 
 - cuda
 ```bash
